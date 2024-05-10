@@ -10,7 +10,7 @@ export const Nav = () => {
                         <img src={logo} alt="Logo" />
                     </div>
                     <ul className="nav-links">
-                        <li><a href="#">Inicio</a></li>
+                        <li><a onClick={() => window.location.reload()}>Inicio</a></li>
                     </ul>
                 </nav>
             </header>

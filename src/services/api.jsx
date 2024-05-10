@@ -15,3 +15,28 @@ export const listarPublicaciones = async () => {
         }
     }
 }
+
+export const buscarPublicacion = async (id) => {
+    try {
+        return await api.get(`/publication/${id}`)
+    } catch (e) {
+        return {
+            error: true,
+            e
+        }
+    }
+}
+
+export const agregarComentario = async (id, nombre, comentario) => {
+    try {
+        console.log('id', id)
+        console.log('nombre', nombre)
+        console.log('comentario', comentario)
+        return await api.put(`/publication/${id}`, {nombre, comentario})
+    } catch (e) {
+        return {
+            error: true,
+            e
+        }
+    }
+}

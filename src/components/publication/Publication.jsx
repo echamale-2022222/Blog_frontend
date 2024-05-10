@@ -1,6 +1,6 @@
 import './publication.css'
 
-export const PublicationCard = ({ publications }) => {
+export const PublicationCard = ({ publications, onReadMoreClick }) => {
     return (
         <div>
             {publications.map((publication, index) => (
@@ -20,7 +20,7 @@ export const PublicationCard = ({ publications }) => {
                         <label>Autor</label>
                         <div>{publication.autor}</div>
                     </div>
-                    <button>Leer más</button>
+                    <button onClick={() => onReadMoreClick(publication._id)}>Leer más</button>
                 </div>
             ))}
         </div>

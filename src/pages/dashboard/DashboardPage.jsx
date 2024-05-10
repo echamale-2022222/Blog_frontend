@@ -1,33 +1,46 @@
-import { useState, useEffect } from 'react'
-import { Nav } from '../../components/nav/Nav'
-import { PublicationCard } from '../../components/publication/Publication'
-import { listarPublicaciones } from '../../services'
+import React, { useState, useEffect } from 'react';
+import { Nav } from '../../components/nav/Nav';
+import { PublicationCard } from '../../components/publication/Publication';
+import { listarPublicaciones } from '../../services';
+import { PublicationDetails } from '../../components/publicationDetails/PublicationDetails';
 
 export const DashboardPage = () => {
-  const [publications, setPublications] = useState([])
+    const [publications, setPublications] = useState([]);
+    const [selectedPublicationId, setSelectedPublicationId] = useState(null);
 
-  useEffect(() => {
-    const fetchPublications = async () => {
-      try {
-        const response = await listarPublicaciones()
-        console.log('Datos obtenidos:', response.data) // Verificar los datos obtenidos
-        if (!response.error) {
-          setPublications(response.data || [])
-          console.log('publications actualizados:', response.data) // Verificar los publications actualizados
-        } else {
-          console.log('Error:', response.data)
-        }
-      } catch (error) {
-        console.log('Error fetching publications:', error)
-      }
-    }
-    fetchPublications()
-  }, [])
+    const handleReadMoreClick = (id) => {
+        console.log('Read more clicked:', id);
+        setSelectedPublicationId(id);
+    };
 
-  return (
-    <>
-      <Nav />
-      <PublicationCard publications={publications} />
-    </>
-    )
-}
+    useEffect(() => {
+        console.log('Selected publication id:', selectedPublicationId);
+    }, [selectedPublicationId]);
+
+    useEffect(() => {
+        const fetchPublications = async () => {
+            try {
+                const response = await listarPublicaciones();
+                if (!response.error) {
+                    setPublications(response.data || []);
+                } else {
+                    console.log('Error:', response.data);
+                }
+            } catch (error) {
+                console.log('Error fetching publications:', error);
+            }
+        };
+        fetchPublications();
+    }, []);
+
+    return (
+        <>
+            <Nav />
+            {selectedPublicationId === null ? (
+                <PublicationCard publications={publications} onReadMoreClick={handleReadMoreClick} />
+            ) : (
+                <PublicationDetails publicationId={selectedPublicationId} />
+            )}
+        </>
+    );
+};
