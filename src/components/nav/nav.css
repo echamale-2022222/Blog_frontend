@@ -1,5 +1,7 @@
 .container {
     text-align: center;
+    font-family: monospace;
+    font-size: 20px;
 }
 
 .navbar {

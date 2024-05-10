@@ -187,20 +187,20 @@ export const PublicationDetails = ({ publicationId }) => {
                             <br />
                         </form>
                         <div>
-                        {publicationDetails && publicationDetails.data && publicationDetails.data.comentarios && publicationDetails.data.comentarios.length > 0 ? (
-    publicationDetails.data.comentarios.map((comentario, index) => (
-        <div key={index} className="comment-card">
-            <div>
-                <label>Nombre persona: {comentario.nombre}</label>
-            </div>
-            <div>
-                <label>Comentario: {comentario.comentario}</label>
-            </div>
-        </div>
-    ))
-) : (
-    <div className="no-comments">No hay comentarios</div>
-)}
+                            {publicationDetails && publicationDetails.data && publicationDetails.data.comentarios && publicationDetails.data.comentarios.length > 0 ? (
+                                publicationDetails.data.comentarios.map((comentario, index) => (
+                                    <div key={index} className="comment-card">
+                                        <div>
+                                            <label>Nombre persona: {comentario.nombre}</label>
+                                        </div>
+                                        <div>
+                                            <label>Comentario: {comentario.comentario}</label>
+                                        </div>
+                                    </div>
+                                ))
+                            ) : (
+                                <div className="no-comments">No hay comentarios</div>
+                            )}
                         </div>
                     </div>
                 </div>
