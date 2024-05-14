@@ -108,37 +108,37 @@ export const PublicationDetails = ({ publicationId }) => {
             {publicationDetails && (
                 <div className="publication-details">
                     <div className="publication-details-item">
-                        <label>Titulo:</label>
+                        <label className='title'>Titulo</label>
                         <div>{publicationDetails.data.titulo}</div>
                     </div>
                     <div className="publication-details-item">
-                        <label>Descripción:</label>
+                        <label className='title'>Descripción</label>
                         <div>{publicationDetails.data.descripcion}</div>
                     </div>
                     <div className="publication-details-item">
-                        <label>Autor:</label>
+                        <label className='title'>Autor</label>
                         <div>{publicationDetails.data.autor}</div>
                     </div>
                     <div className="publication-details-item">
-                        <label>Link:</label><br />
+                        <label className='title'>Link</label><br />
                         <a href={publicationDetails.data.link} target="_blank" rel="noopener noreferrer">
                             {publicationDetails.data.link}
                         </a>
                     </div>
                     <div className="publication-details-item">
-                        <label>Tecnologías utilizadas:</label>
+                        <label className='title'>Tecnologías utilizadas</label>
                         <div>{publicationDetails.data.tecnologiasUtilizadas}</div>
                     </div>
                     <div className="publication-details-item">
-                        <label>De que trata:</label>
+                        <label className='title'>De que trata</label>
                         <div>{publicationDetails.data.deQueTrata}</div>
                     </div>
                     <div className="publication-details-item">
-                        <label>Como funciona:</label>
+                        <label className='title'>Como funciona</label>
                         <div>{publicationDetails.data.comoFunciona}</div>
                     </div>
                     <div className="publication-details-item">
-                        <label>Imágenes:</label>
+                        <label className='title'>Imágenes</label>
                         <div className="image-gallery">
                             {publicationDetails.data.imagenes.map((image, index) => (
                                 <img key={index} src={image} alt={`Image ${index}`} />
@@ -146,25 +146,25 @@ export const PublicationDetails = ({ publicationId }) => {
                         </div>
                     </div>
                     <div className="publication-details-item">
-                        <label>Caracteristicas principales:</label>
+                        <label className='title'>Caracteristicas principales</label>
                         <div>{publicationDetails.data.caracteristicasPrincipales}</div>
                     </div>
                     <div className="publication-details-item">
-                        <label>Caracteristicas secundarias:</label>
+                        <label className='title'>Caracteristicas secundarias</label>
                         <div>{publicationDetails.data.caracteristicasSecundarias}</div>
                     </div>
                     <div className="publication-details-item">
-                        <label>Etiquetas:</label>
+                        <label className='title'>Etiquetas</label>
                         <div>{publicationDetails.data.etiquetas}</div>
                     </div>
                     <div className="publication-details-item">
-                        <label>Fecha de creacion de la publicación:</label>
+                        <label className='title'>Fecha de creacion de la publicación</label>
                         <div>{publicationDetails.data.fechaCreacion}</div>
                     </div>
                     <hr />
                     <h2>Comentarios</h2>
-                    <div className="publication-details-item">
-                        <form className="comment-form">
+                    <div className="comment-container">
+                        <div className="comment-details">
                             <Input
                                 field="nombre"
                                 label="Nombre persona"
@@ -180,28 +180,27 @@ export const PublicationDetails = ({ publicationId }) => {
                                 value={formState.comentario.value}
                                 onChangeHandler={handleInputValueChange}
                                 onBlurHandler={handleInputValidationOnBlur}
-                                type="text"
+                                type="textarea"
                                 className="comment-input"
                             />
-                            <button onClick={handleFormSubmit} className="comment-button">Agregar comentario</button>
-                            <br />
-                        </form>
-                        <div>
-                            {publicationDetails && publicationDetails.data && publicationDetails.data.comentarios && publicationDetails.data.comentarios.length > 0 ? (
-                                publicationDetails.data.comentarios.map((comentario, index) => (
-                                    <div key={index} className="comment-card">
-                                        <div>
-                                            <label>Nombre persona: {comentario.nombre}</label>
-                                        </div>
-                                        <div>
-                                            <label>Comentario: {comentario.comentario}</label>
-                                        </div>
-                                    </div>
-                                ))
-                            ) : (
-                                <div className="no-comments">No hay comentarios</div>
-                            )}
                         </div>
+                        <button onClick={handleFormSubmit} className="add-comment-btn">Agregar comentario</button>
+                    </div>
+                    <div className="comments-list">
+                        {publicationDetails.data.comentarios && publicationDetails.data.comentarios.length > 0 ? (
+                            publicationDetails.data.comentarios.map((comentario, index) => (
+                                <div key={index} className="comment-card">
+                                    <div>
+                                        <label>Nombre persona: {comentario.nombre}</label>
+                                    </div>
+                                    <div>
+                                        <label>Comentario: {comentario.comentario}</label>
+                                    </div>
+                                </div>
+                            ))
+                        ) : (
+                            <div className="no-comments">No hay comentarios</div>
+                        )}
                     </div>
                 </div>
             )}

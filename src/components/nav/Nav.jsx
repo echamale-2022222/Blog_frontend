@@ -1,7 +1,13 @@
 import './nav.css';
 import logo from '../../assets/img/EscudoPeque.svg';
+import { Link } from "react-router-dom";
 
 export const Nav = () => {
+    const handleInicioClick = () => {
+        window.location.reload();
+        window.location.href = '/';
+    }
+
     return (
         <div className="container">
             <header>
@@ -10,7 +16,10 @@ export const Nav = () => {
                         <img src={logo} alt="Logo" />
                     </div>
                     <ul className="nav-links">
-                        <li><a onClick={() => window.location.reload()}>Inicio</a></li>
+                        <li>
+                            <a onClick={handleInicioClick}>Inicio</a>
+                        </li>
+                        <li><Link to="/programador">Programador</Link></li>
                     </ul>
                 </nav>
             </header>

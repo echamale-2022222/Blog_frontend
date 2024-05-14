@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+/*SECTION SOBRE MI*/
+.sobremi {
+    max-width: 1200px;
+    height: 100vh;
+    margin: auto;
+    padding: 100px 20px;
+    color: #14243c;
+    display: flex;
+}
+
+.sobre_mi_foto img {
+    padding: 20px;
+    width: 100%;
+    width: 500px;
+    height: 700px;
+    border: 3px solid #14243c;
+    border-radius: 60%;
+}
+
+.sobre_mi {
+    padding: 12px;
+    border: 3px solid #14243c;
+    border-radius: 10px;
+    height: 700px;
+}
+
+.sobremi .sobre_mi {
+    margin: 0 40px;
+}
+
+.sobremi .sobre_mi .titulo_seccion {
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #14243c;
+    text-decoration: underline;
+    text-decoration-color: #fb8630;
+    text-decoration-thickness: 8px;
+}
+
+.sobremi .sobre_mi h2 {
+    font-size: 35px;
+    font-weight: bold;
+    margin: 20px 0;
+    letter-spacing: 2px;
+    color: #24346c;
+}
+
+.sobremi .sobre_mi h2 span {
+    color: #14243c;
+}
+
+.sobremi .sobre_mi h3 {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    color: #fcb404;
+}
+
+.sobremi .sobre_mi p {
+    font-size: 16px;
+    line-height: 30px;
+    color: #24346c;
+    margin-bottom: 12px;
+}
+
+/*SECTION METAS*/
+.metas {
+    max-width: 1200px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.metas .metas_p .tituloMetas {
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #14243c;
+    text-decoration: underline;
+    text-decoration-color: #fb8630;
+    text-decoration-thickness: 8px;
+    margin-bottom: 80px;
+}
+
+.metas .metas_p h2 {
+    color: #14243c;
+    margin-bottom: 80px;
+}
+
+.metas ul {
+    list-style-type: '🥇';
+}
+
+.metas ul li {
+    opacity: 1;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
