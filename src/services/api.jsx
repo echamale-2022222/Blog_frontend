@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://127.0.0.1:3000/blog/v1",
+    baseURL: "https://blog-backend-azure.vercel.app/blog/v1",
     timeout: 5000,
 })
 
